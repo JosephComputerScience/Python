@@ -1,3 +1,11 @@
+"""
+Implement a function to check if a binary tree is balanced. 
+For the purposes of this question, a balanced tree is defined 
+to be a tree such that the heights of the two subtrees of any 
+node never differ by more than one.
+"""
+
+
 class TreeNode:
 
     def __init__(self, data):
@@ -38,34 +46,3 @@ def create_tree_node_list(values):
         tree_node_lst.append(TreeNode(value))
 
     return tree_node_lst
-
-
-node_lst_test_one = create_tree_node_list(['A', 'B', 'C', 'D', 'E'])
-node_lst_test_one[0].add_children(node_lst_test_one[1], node_lst_test_one[2])
-node_lst_test_one[1].add_children(node_lst_test_one[3], None)
-node_lst_test_one[2].add_children(node_lst_test_one[4], None)
-""" # NOQA
-        A
-      /   \
-     B     C
-    /     /
-   D     E
-Answer: Balanced, True
-"""
-print is_balanced(node_lst_test_one[0])
-
-node_lst_test_two = create_tree_node_list([1, 2, 'C', 'D', 'E', 'F'])
-node_lst_test_two[0].add_children(node_lst_test_two[1], node_lst_test_two[2])
-node_lst_test_two[1].add_children(node_lst_test_two[3], node_lst_test_two[4])
-node_lst_test_two[3].add_children(node_lst_test_two[5], None)
-""" # NOQA
-        A
-      /   \
-     B     C
-    / \    
-   D   E  
-  /
- F
-Answer: Not balanced, False
-"""
-print is_balanced(node_lst_test_two[0])

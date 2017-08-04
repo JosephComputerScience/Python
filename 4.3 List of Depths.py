@@ -1,3 +1,10 @@
+"""
+Given a binary tree, design an algorithm which creates a linked list
+of all the nodes at each depth(e.g., if you have a tree with depth D,
+you'll have D linked lists).
+"""
+
+
 class TreeNode:
 
     def __init__(self, data):
@@ -138,20 +145,3 @@ def print_linked_lists(lsts):
     for lst in lsts:
         lst.to_string()
 
-
-tree_node_list = create_tree_node_list([1, 2, 3, 4, 5])
-tree_node_list[0].add_children(tree_node_list[1], tree_node_list[2])
-tree_node_list[1].add_children(tree_node_list[3], tree_node_list[4])
-""" # NOQA
-         1 
-      /     \
-    2         3
-   /  \
-  4    5
-
-  Answer: 1
-          2-> 3
-          4-> 5 
-"""
-lsts = create_depth_linked_lists(tree_node_list[0])
-print_linked_lists(lsts)
