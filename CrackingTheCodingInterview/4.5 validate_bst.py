@@ -27,7 +27,7 @@ def check_bst(root):
     return check_bst_helper(root)
 
 
-def check_bst_helper(focus_node, min = None, max = None):
+def check_bst_helper(focus_node, min=None, max=None):
     if focus_node is None:
         return True
 
@@ -35,7 +35,5 @@ def check_bst_helper(focus_node, min = None, max = None):
        focus_node.data > max and max is not None:
         return False
 
-
-    return check_bst_util(focus_node.left_child, min, focus_node.data) and \
-           check_bst_util(focus_node.right_child, focus_node.data, max)
-
+    return check_bst_helper(focus_node.left_child, min, focus_node.data) and \
+        check_bst_helper(focus_node.right_child, focus_node.data, max)
