@@ -23,24 +23,19 @@ def create_tree_node_list(values):
     return tree_node_lst
 
 
-def check_bst(binary_tree_root):
-    queue = []
-    if binary_tree_root is None:
+def check_bst(root):
+    return check_bst_util(root)
+
+
+def check_bst_util(focus_node, min = None, max = None):
+    if focus_node is None:
+        return True
+
+    if focus_node.data < min and min is not None or \
+       focus_node.data > max and max is not None:
         return False
 
-    queue.append(binary_tree_root)
-    while len(queue) != 0:
-        focus_node = queue.pop(0)
-        if focus_node.left_child is not None:
-            if focus_node.left_child.data > focus_node.data:
-                return False
 
-            queue.append(focus_node.left_child)
+    return check_bst_util(focus_node.left_child, min, focus_node.data) and \
+           check_bst_util(focus_node.right_child, focus_node.data, max)
 
-        if focus_node.right_child is not None:
-            if focus_node.right_child.data < focus_node.data:
-                return False
-
-            queue.append(focus_node.right_child)
-
-    return True
