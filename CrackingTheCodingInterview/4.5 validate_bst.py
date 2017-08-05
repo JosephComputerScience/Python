@@ -24,10 +24,10 @@ def create_tree_node_list(values):
 
 
 def check_bst(root):
-    return check_bst_util(root)
+    return check_bst_helper(root)
 
 
-def check_bst_util(focus_node, min = None, max = None):
+def check_bst_helper(focus_node, min = None, max = None):
     if focus_node is None:
         return True
 
