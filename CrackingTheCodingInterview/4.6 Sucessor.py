@@ -4,71 +4,71 @@ of a given node in a binary search tree.
 You may assume that each node has a link to its parent.
 """
 
+
 class TreeNode:
 
-	def __init__(self, data = None):
-		self.data = data
-		self.left_child = None
-		self.right_child = None
+    def __init__(self, data=None):
+        self.data = data
+        self.left_child = None
+        self.right_child = None
 
-	def add_children(self, left_child, right_child):
-		self.left_child = left_child
-		self.right_child = right_child
+    def add_children(self, left_child, right_child):
+        self.left_child = left_child
+        self.right_child = right_child
 
 
 class BST:
-	
-	def __init__(self):
-		self.root = None
 
-	def  find_min(self, node):
-		while node.left_child is not None:
-			node = node.left_child
+    def __init__(self):
+        self.root = None
 
-		return node.data
+    def find_min(self, node):
+        while node.left_child is not None:
+            node = node.left_child
 
-	def add_root(self, node):
-		self.root = node
+        return node.data
 
-	def find_num(self, node):
-		temp = root
-		while temp is not None:
-			if node.data < temp.data:
-				temp = temp.left_child
-			else:
-				temp = temp.right_child
+    def add_root(self, node):
+        self.root = node
 
-		return temp
+    def find_num(self, node):
+        temp = self.root
+        while temp is not None:
+            if node.data < temp.data:
+                temp = temp.left_child
+            else:
+                temp = temp.right_child
 
-	def find_successor(self, node):
-		if find_num is None:
-			return None
+        return temp
 
-		if node.right_child is not None:
-			node = node.right_child
-			return self.find_min(node)
+    def find_successor(self, node):
+        if self.find_num is None:
+            return None
 
-		else:
-			ancestor = self.root
-			successor = None
-			while ancestor is not None:
-				
-				if node.data < ancestor.data:
-					successor = ancestor
-					ancestor = ancestor.left_child
-				else:
-					ancestor = ancestor.right_child
+        if node.right_child is not None:
+            node = node.right_child
+            return self.find_min(node)
 
-			if successor is None:
-				return None
+        else:
+            ancestor = self.root
+            successor = None
+            while ancestor is not None:
 
-			return successor.data
+                if node.data < ancestor.data:
+                    successor = ancestor
+                    ancestor = ancestor.left_child
+                else:
+                    ancestor = ancestor.right_child
+
+            if successor is None:
+                return None
+
+            return successor.data
 
 
 def create_node_lst(values):
-	node_lst = []
-	for value in values:
-		node_lst.append(TreeNode(value))
+    node_lst = []
+    for value in values:
+        node_lst.append(TreeNode(value))
 
-	return node_lst
-
+    return node_lst
