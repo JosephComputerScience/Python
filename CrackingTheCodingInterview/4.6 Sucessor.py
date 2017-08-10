@@ -72,3 +72,4 @@ def create_node_lst(values):
         node_lst.append(TreeNode(value))
 
     return node_lst
+    
