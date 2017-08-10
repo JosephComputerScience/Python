@@ -33,3 +33,4 @@ def compress(string):
         if x >1:
             return "".join(aryS)
     return string
+j
