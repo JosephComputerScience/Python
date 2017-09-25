@@ -18,16 +18,14 @@ class Solution(object):
         """
         l = 0
         r = len(matrix)-1
-
         while l < r:
             for i in range(l, r):
-                temp1 = matrix[l+i-l][r]
-                matrix[l+i-l][r] = matrix[l][i]
+                temp1 = matrix[i][r]
+                matrix[i][r] = matrix[l][i]
                 temp2 = matrix[r][r-i+l]
                 matrix[r][r-i+l] = temp1
                 temp1 = matrix[r-i+l][l]
                 matrix[r-i+l][l] = temp2
                 matrix[l][i] = temp1
-
             l += 1
             r -= 1
